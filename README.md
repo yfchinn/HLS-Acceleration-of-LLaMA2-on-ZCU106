@@ -33,7 +33,15 @@ xrt-smi examine -r all
 ```
 
 4. Run the host application:
-
 ```
 ./Llama2_host stories15M.bin
 ```
+
+## Results
+
+| Environment | Tokens | Time (s) | Speed (tok/s) |
+| ----------- | ------ | -------- | ------------- |
+| ARM CPU     | 201    | 114.7    | 1.75          |
+| FPGA Kernel | 225    | 25.8     | 8.71          |
+
+With FPGA acceleration, throughput improves by 5x+ compared to CPU-only execution.
