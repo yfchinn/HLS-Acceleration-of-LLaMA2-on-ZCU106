@@ -8,8 +8,8 @@ It uses Vitis HLS to design computational kernels (kernel_forward.cpp) and an XR
 ### Development Environment
 
 - Ubuntu 22.04
-- Vitis 2024.2 / Vivado 2024.2
-- ARM cross-compiler (gcc-aarch64-linux-gnu, g++-aarch64-linux-gnu)
+- Vitis 2024.2
+- Vivado 2024.2
 
 ### Execution Environment
 
