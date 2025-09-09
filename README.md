@@ -15,7 +15,6 @@ It uses Vitis HLS to design computational kernels (kernel_forward.cpp) and an XR
 
 - ZCU106 development board
 - PetaLinux 2024.2
-- XRT 2.18.0
 
 ## Running on ZCU106
 
