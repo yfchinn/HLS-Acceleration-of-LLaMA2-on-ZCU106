@@ -37,35 +37,35 @@ It uses Vitis HLS to design computational kernels (kernel_forward.cpp) and an XR
 - If you see VFS: Cannot open root device:
   1. Press any key during boot to enter U-Boot CLI
   2. Update bootargs:
-```
-setenv bootargs "root=/dev/mmcblk0p2"
-saveenv
-boot
-```
+      ```
+      setenv bootargs "root=/dev/mmcblk0p2"
+      saveenv
+      boot
+      ```
 5. Login after boot:
-- Default user: petalinux (set a new password at first login)
-- If unable to log in:
-  1. Mount the SD card in Ubuntu
-  2. Locate the ```/etc/``` directory in the system partition
-  3. Reset password:
-```
-sudo passwd root
-sudo nano /etc/shadow
-```
-  4. Ensure root line looks like:
-     ```
-root:$6$abcd1234$......:15069:0:99999:7:::
-     ```
+    - Default user: petalinux (set a new password at first login)
+    - If unable to log in:
+      1. Mount the SD card in Ubuntu
+      2. Locate the ```/etc/``` directory in the system partition
+      3. Reset password:
+        ```
+        sudo passwd root
+        sudo nano /etc/shadow
+        ```
+      4. Ensure root line looks like:
+         ```
+         root:$6$abcd1234$......:15069:0:99999:7:::
+         ```
 
 6. Go to auto-mounted FAT32 partition:
    ```
-sudo -s
-cd /run/media/mmcblk0p1/
+  sudo -s
+  cd /run/media/mmcblk0p1/
    ```
 7. Run application:
-```
-./Llama2_host stories15M.bin
-```
+    ```
+    ./Llama2_host stories15M.bin
+    ```
 
 ## Results
 
