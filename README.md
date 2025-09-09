@@ -19,29 +19,29 @@ It uses Vitis HLS to design computational kernels (kernel_forward.cpp) and an XR
 ## Running on ZCU106
 
 1. Copy the following files to the SD card:
-
-- Llama2_host (host executable)
-- binary_container_1.bin (FPGA kernel binary)
-- Model weights (e.g., stories15M.bin)
-- tokenizer.bin
+    - Llama2_host (host executable)
+    - binary_container_1.bin (FPGA kernel binary)
+    - Model weights (e.g., stories15M.bin)
+    - tokenizer.bin
 
 2. Boot the ZCU106 in SD card mode.
 
 3. Monitor boot via UART:
-- Use Vitis → New Feature Preview → Serial Monitor Install
-- Connect to the board via UART and monitor the boot log
-- Set baud rate to 115200 bps and select the correct COM port
-- Verify system boot messages until Linux is up and running
+    - Use Vitis → New Feature Preview → Serial Monitor Install
+    - Connect to the board via UART and monitor the boot log
+    - Set baud rate to 115200 bps and select the correct COM port
+    - Verify system boot messages until Linux is up and running
 
 4. Troubleshooting during boot:
-- If you see VFS: Cannot open root device:
-  1. Press any key during boot to enter U-Boot CLI
-  2. Update bootargs:
-      ```
-      setenv bootargs "root=/dev/mmcblk0p2"
-      saveenv
-      boot
-      ```
+    - If you see VFS: Cannot open root device:
+      1. Press any key during boot to enter U-Boot CLI
+      2. Update bootargs:
+          ```
+          setenv bootargs "root=/dev/mmcblk0p2"
+          saveenv
+          boot
+          ```
+
 5. Login after boot:
     - Default user: petalinux (set a new password at first login)
     - If unable to log in:
@@ -53,19 +53,20 @@ It uses Vitis HLS to design computational kernels (kernel_forward.cpp) and an XR
         sudo nano /etc/shadow
         ```
       4. Ensure root line looks like:
-         ```
-         root:$6$abcd1234$......:15069:0:99999:7:::
-         ```
+        ```
+        root:$6$abcd1234$......:15069:0:99999:7:::
+        ```
 
 6. Go to auto-mounted FAT32 partition:
-   ```
+  ```
   sudo -s
   cd /run/media/mmcblk0p1/
-   ```
+  ```
+
 7. Run application:
-    ```
-    ./Llama2_host stories15M.bin
-    ```
+  ```
+  ./Llama2_host stories15M.bin
+  ```
 
 ## Results
 
