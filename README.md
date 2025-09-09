@@ -27,12 +27,42 @@ It uses Vitis HLS to design computational kernels (kernel_forward.cpp) and an XR
 
 2. Boot the ZCU106 in SD card mode.
 
-3. Log into PetaLinux and check FPGA/XRT status:
-```
-xrt-smi examine -r all
-```
+3. Monitor boot via UART:
+- Use Vitis → New Feature Preview → Serial Monitor Install
+- Connect to the board via UART and monitor the boot log
+- Set baud rate to 115200 bps and select the correct COM port
+- Verify system boot messages until Linux is up and running
 
-4. Run the host application:
+4. Troubleshooting during boot:
+- If you see VFS: Cannot open root device:
+  1. Press any key during boot to enter U-Boot CLI
+  2. Update bootargs:
+```
+setenv bootargs "root=/dev/mmcblk0p2"
+saveenv
+boot
+```
+5. Login after boot:
+- Default user: petalinux (set a new password at first login)
+- If unable to log in:
+  1. Mount the SD card in Ubuntu
+  2. Locate the ```/etc/``` directory in the system partition
+  3. Reset password:
+```
+sudo passwd root
+sudo nano /etc/shadow
+```
+  4. Ensure root line looks like:
+     ```
+root:$6$abcd1234$......:15069:0:99999:7:::
+     ```
+
+6. Go to auto-mounted FAT32 partition:
+   ```
+sudo -s
+cd /run/media/mmcblk0p1/
+   ```
+7. Run application:
 ```
 ./Llama2_host stories15M.bin
 ```
@@ -42,6 +72,6 @@ xrt-smi examine -r all
 | Environment | Tokens | Time (s) | Speed (tok/s) |
 | ----------- | ------ | -------- | ------------- |
 | ZCU106 PS   | 201    | 114.7    | 1.75          |
-| ZCU106 Accelerated | 225    | 25.8     | 8.71          |
+| ZCU106 accelerated | 225    | 25.8     | 8.71          |
 
 With FPGA acceleration, throughput **improves by 5x+ compared to PS-only execution**.
