@@ -75,4 +75,4 @@ It uses Vitis HLS to design computational kernels (kernel_forward.cpp) and a hos
 | ZCU106 PS   | 201    | 114.7    | 1.75          |
 | ZCU106 accelerated | 225    | 25.8     | 8.71          |
 
-With FPGA acceleration, throughput **improves by 5x+ compared to PS-only execution**.
+With FPGA acceleration, throughput **improves by ~5x compared to PS-only execution**.
