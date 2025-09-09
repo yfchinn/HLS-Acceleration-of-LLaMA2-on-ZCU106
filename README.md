@@ -41,7 +41,7 @@ xrt-smi examine -r all
 
 | Environment | Tokens | Time (s) | Speed (tok/s) |
 | ----------- | ------ | -------- | ------------- |
-| ARM CPU     | 201    | 114.7    | 1.75          |
-| FPGA Kernel | 225    | 25.8     | 8.71          |
+| ZCU106 PS   | 201    | 114.7    | 1.75          |
+| ZCU106 Accelerated | 225    | 25.8     | 8.71          |
 
-With FPGA acceleration, throughput improves by **5x+** compared to CPU-only execution.
+With FPGA acceleration, throughput **improves by 5x+ compared to PS-only execution**.
