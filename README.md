@@ -1,4 +1,4 @@
-# HLS-Acceleration-of-LLaMA2-on-ZCU106
+# HLS-Acceleration-of-LLaMA2
 
 This project implements a hardware-accelerated Transformer forward pass.
 It uses Vitis HLS to design computational kernels (kernel_forward.cpp) and a host program (main.cpp) to manage FPGA execution. The system is deployed on the AMD Zynq UltraScale+ MPSoC ZCU106 board.
